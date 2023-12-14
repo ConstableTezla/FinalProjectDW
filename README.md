@@ -15,6 +15,8 @@ Please run the following:
 Pip install -r requirements.txt
 ```
 ## How to run
+Firstly, you will need to have nmap installed on your device
+
 In a terminal window, please type the following:
 
 ```
