@@ -4,11 +4,24 @@ import nmap
 import ipaddress
 import json
 
-app = Flask(__name__)
+
+app = Flask(__name__, template_folder='C:\\Users\\DaltonWright\\PycharmProjects\\FinalProjectDW\\templates')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///os_info.db'
 db = SQLAlchemy(app)
 
-# ... (rest of the code remains unchanged)
+
+def is_valid_ipv4(ip):
+    try:
+        ipaddress.IPv4Address(ip)
+        return True
+    except ipaddress.AddressValueError:
+        return False
+
+
+class OsInfo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    os_name = db.Column(db.String(50), nullable=False)
+    count = db.Column(db.Integer, nullable=False)
 
 
 @app.route('/scan_network', methods=['GET', 'POST'])
