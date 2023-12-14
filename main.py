@@ -5,7 +5,7 @@ import ipaddress
 import json
 
 
-app = Flask(__name__, template_folder='C:\\Users\\DaltonWright\\PycharmProjects\\FinalProjectDW\\templates')
+app = Flask(__name__, template_folder='templates')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///os_info.db'
 db = SQLAlchemy(app)
 
